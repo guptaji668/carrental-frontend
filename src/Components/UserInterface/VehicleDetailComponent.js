@@ -4,28 +4,28 @@ import Header from "../UserInterface/MyComponents/Header";
 import { Divider, Paper, TextField, Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import { ServerURL } from "../Services/FetchNodeServices";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 const VehicleDetailComponent = () => {
   const classes = useStyles();
-  var navigate=useNavigate()
+  var navigate = useNavigate();
   var vehicle = useSelector((state) => state.vehicle);
-  
+
   var vehicleDetails = Object.values(vehicle)[0];
-  console.log("READ VEHICLE DATA 0",vehicleDetails)
-  var pickup=400
-  var sdeposit=2000
-  var total=pickup+sdeposit+vehicleDetails.rent
-  
+  console.log("READ VEHICLE DATA 0", vehicleDetails);
+  var pickup = 400;
+  var sdeposit = 2000;
+  var total = pickup + sdeposit + vehicleDetails.rent;
+
   var bookingDetails = useSelector((state) => state.booking);
-  var st=Object.values(bookingDetails.starttime)[2]
-  var std=st.toDateString()
-  var stt= st.getHours()+":"+st.getMinutes()+":"+st.getSeconds()
+  var st = Object.values(bookingDetails.starttime)[2];
+  var std = st.toDateString();
+  var stt = st.getHours() + ":" + st.getMinutes() + ":" + st.getSeconds();
 
-  var et=Object.values(bookingDetails.endtime)[2]
-  var etd=et.toDateString()
-  var ett= et.getHours()+":"+et.getMinutes()+":"+et.getSeconds()
+  var et = Object.values(bookingDetails.endtime)[2];
+  var etd = et.toDateString();
+  var ett = et.getHours() + ":" + et.getMinutes() + ":" + et.getSeconds();
 
-  console.log("READ Booking DATA 0",bookingDetails)
+  console.log("READ Booking DATA 0", bookingDetails);
   return (
     <>
       <div style={{ background: "rgb(241, 241, 241)", height: "100%" }}>
@@ -110,7 +110,7 @@ const VehicleDetailComponent = () => {
                             width: "40%",
                           }}
                         >
-                          {std+""+stt}
+                          {std + "" + stt}
                         </span>
                         <Divider style={{ width: "20%" }}>
                           <b> TO </b>
@@ -122,7 +122,7 @@ const VehicleDetailComponent = () => {
                             width: "40%",
                           }}
                         >
-                          {etd+""+ett}
+                          {etd + "" + ett}
                         </span>
                       </div>
                       <br />
@@ -268,7 +268,9 @@ const VehicleDetailComponent = () => {
                     <tbody>
                       <tr>
                         <td style={{ paddingBottom: 6 }}>Base Fare</td>
-                        <td style={{ paddingBottom: 6 }}>&#x20B9; {vehicleDetails.rent}</td>
+                        <td style={{ paddingBottom: 6 }}>
+                          &#x20B9; {vehicleDetails.rent}
+                        </td>
                       </tr>
                       <tr>
                         <td style={{ paddingBottom: 6 }}>
@@ -284,7 +286,9 @@ const VehicleDetailComponent = () => {
                         <td style={{ paddingBottom: 6 }}>
                           Refundable Security Deposit
                         </td>
-                        <td style={{ paddingBottom: 12 }}>&#x20B9; {sdeposit}</td>
+                        <td style={{ paddingBottom: 12 }}>
+                          &#x20B9; {sdeposit}
+                        </td>
                       </tr>
                       <tr>
                         <td style={{ paddingTop: 24, paddingRight: 84 }}>
@@ -383,7 +387,11 @@ const VehicleDetailComponent = () => {
                             paddingBottom: 8,
                           }}
                         >
-                          <Button onClick={()=>navigate("/paymentgateway")} color="secondary" variant="contained">
+                          <Button
+                            onClick={() => navigate("/paymentgateway")}
+                            color="secondary"
+                            variant="contained"
+                          >
                             Proceed
                           </Button>
                         </td>

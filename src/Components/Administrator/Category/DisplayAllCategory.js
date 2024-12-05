@@ -39,15 +39,15 @@ const fetchAllCategory=async()=>{
 
 }
 
-const handleSetDataForDialog=(rowData)=>{
-  setCategoryName(rowData.categoryname)
-  setCategoryID(rowData.categoryid)
-  setOldIcon(rowData.icon)
-  setIcon({filename:`${ServerURL}/images/${rowData.icon}`,bytes:''})
-  setPrevIcon(`${ServerURL}/images/${rowData.icon}`)
-  setOpen(true)
+  const handleSetDataForDialog=(rowData)=>{
+    setCategoryName(rowData.categoryname)
+    setCategoryID(rowData.categoryid)
+    setOldIcon(rowData.icon)
+    setIcon({filename:`${ServerURL}/images/${rowData.icon}`,bytes:''})
+    setPrevIcon(`${ServerURL}/images/${rowData.icon}`)
+    setOpen(true)
 
-}
+  }
 
 
 const handleDiscard=(rowData)=>{
